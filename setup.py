@@ -8,6 +8,7 @@ README_PATH = os.path.join(base, "README.rst")
 
 install_requires = [
     'transmute-core>=0.4',
+    'sanic',
 ]
 
 tests_require = []
