@@ -9,9 +9,9 @@ DEFAULT_HTTP_CONTENT_TYPE = "application/octet-stream"
 
 
 def create_handler(transmute_func, context):
-	
-	@wraps(transmute_func.raw_func)
-	async def handler(request):
+
+    @wraps(transmute_func.raw_func)
+    async def handler(request):
         exc, result = None, None
         try:
             args, kwargs = await extract_params(request, context,
@@ -24,7 +24,7 @@ def create_handler(transmute_func, context):
             context, result, exc, content_type
         )
         return Response(
-            body=response["body"],
+            response["body"],
             status=response["code"],
             content_type=response["content-type"]
         )
@@ -68,5 +68,5 @@ class ParamExtractorJapronto(ParamExtractor):
         return self._request.headers.get(key, NoArgument)
 
     def _path_argument(self, key):
-    	kargs = self._request.app.router.get(self._request)
+        kargs = self._request.app.router.get(self._request)[2]
         return kargs.get(key, NoArgument)
