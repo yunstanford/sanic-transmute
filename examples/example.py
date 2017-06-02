@@ -1,6 +1,6 @@
 from sanic import Sanic
 from sanic.response import json
-from sanic_transmute import describe, add_route
+from sanic_transmute import describe, add_route, add_swagger
 
 app = Sanic()
 
@@ -33,5 +33,5 @@ async def test_transmute(request, user: str, env: str=None, group: str=None):
 
 if __name__ == "__main__":
     add_route(app, test_transmute)
-    app.add_route(test_add_route, "/api/v1/env/<env>/", methods=["GET"])
+    add_swagger(app, "/api/v1/swagger.json", "/api/v1/")
     app.run(host="0.0.0.0", port=8000)

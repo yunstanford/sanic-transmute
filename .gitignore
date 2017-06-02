@@ -11,3 +11,5 @@ docs/_build
 __pycache__
 *.pyc
 .DS_Store
+access.log
+error.log

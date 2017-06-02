@@ -4,7 +4,7 @@ from transmute_core.swagger import (
     SwaggerSpec
 )
 import json
-from sanic import response as Response
+from sanic.response import HTTPResponse
 from sanic import Blueprint
 
 
@@ -41,7 +41,7 @@ def add_swagger_api_route(app, target_route, swagger_json_route):
     ).encode("utf-8")
 
     async def swagger_ui(request):
-        return Response(body=swagger_body, content_type="text/html")
+        return HTTPResponse(body=swagger_body, content_type="text/html")
 
     bp = Blueprint('swagger')
     bp.static(STATIC_ROOT, static_root)
@@ -64,7 +64,7 @@ def create_swagger_json_handler(app, **kwargs):
     encoded_spec = json.dumps(spec_dict).encode("UTF-8")
 
     async def swagger(request):
-        return Response(
+        return HTTPResponse(
             encoded_spec,
             headers={
                 "Access-Control-Allow-Origin": "*"
