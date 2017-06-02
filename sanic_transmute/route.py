@@ -3,7 +3,7 @@ from .handler import create_handler
 from .swagger import get_swagger_spec
 
 
-def add_route(app_or_blueprint, fn, context=default_contex):
+def add_route(app_or_blueprint, fn, context=default_context):
     """
     a decorator that adds a transmute route to the application
     """
@@ -13,10 +13,9 @@ def add_route(app_or_blueprint, fn, context=default_contex):
     )
     handler = create_handler(transmute_func, context=context)
     get_swagger_spec(app_or_blueprint).add_func(transmute_func, context)
-
     for p in transmute_func.paths:
         sanic_path = _convert_to_sanic_path(p)
-        app_or_blueprint.add_route(handler, p, transmute_func.methods)
+        app_or_blueprint.add_route(handler, sanic_path, methods=list(transmute_func.methods))
 
 
 def _convert_to_sanic_path(path):

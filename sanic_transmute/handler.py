@@ -2,16 +2,16 @@ from functools import wraps
 from transmute_core.exceptions import APIException, NoSerializerFound
 from transmute_core.function.signature import NoDefault
 from transmute_core import ParamExtractor, NoArgument
-from sanic import response as Response
+from sanic.response import HTTPResponse
 
 
-DEFAULT_HTTP_CONTENT_TYPE = "application/octet-stream"
+DEFAULT_HTTP_CONTENT_TYPE = "application/json"
 
 
 def create_handler(transmute_func, context):
 
     @wraps(transmute_func.raw_func)
-    async def handler(request):
+    async def handler(request, *args, **kwargs):
         exc, result = None, None
         try:
             args, kwargs = await extract_params(request, context,
@@ -23,12 +23,11 @@ def create_handler(transmute_func, context):
         response = transmute_func.process_result(
             context, result, exc, content_type
         )
-        return Response(
+        return HTTPResponse(
             response["body"],
             status=response["code"],
             content_type=response["content-type"]
         )
-
     handler.transmute_func = transmute_func
     return handler
 
@@ -37,13 +36,13 @@ def create_handler(transmute_func, context):
 async def extract_params(request, context, transmute_func):
     body = request.body
     content_type = request.headers.get("Content-Type", DEFAULT_HTTP_CONTENT_TYPE)
-    extractor = ParamExtractorJapronto(request, body)
+    extractor = ParamExtractorSanic(request, body)
     return extractor.extract_params(
         context, transmute_func, content_type
     )
 
 
-class ParamExtractorJapronto(ParamExtractor):
+class ParamExtractorSanic(ParamExtractor):
 
     def __init__(self, request, body):
         self._request = request

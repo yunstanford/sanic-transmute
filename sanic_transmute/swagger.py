@@ -13,9 +13,9 @@ SWAGGER_KEY = "_sanic_transmute_swagger"
 
 
 def get_swagger_spec(app):
-    if SWAGGER_KEY not in app:
-        app[SWAGGER_KEY] = SwaggerSpec()
-    return app[SWAGGER_KEY]
+    if not hasattr(app, SWAGGER_KEY):
+        setattr(app, SWAGGER_KEY, SwaggerSpec())
+    return getattr(app, SWAGGER_KEY)
 
 
 def add_swagger(app, json_route, html_route):
