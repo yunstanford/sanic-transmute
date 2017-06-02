@@ -24,9 +24,9 @@ def create_handler(transmute_func, context):
             context, result, exc, content_type
         )
         return HTTPResponse(
-            response["body"],
             status=response["code"],
-            content_type=response["content-type"]
+            content_type=response["content-type"],
+            body_bytes=response["body"],
         )
     handler.transmute_func = transmute_func
     return handler
