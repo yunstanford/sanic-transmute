@@ -11,17 +11,14 @@ def main(build):
 def test(build):
     build.packages.install("pytest")
     build.packages.install("pytest-cov")
+    build.packages.install("aiohttp")
     build.packages.install("pytest-asyncio")
     build.packages.install("radon")
-    build.packages.install("flake8")
     build.executables.run([
         "pytest", "./tests",
         "--cov", "sanic_transmute",
         "--cov-report", "term-missing",
     ] + build.options.args)
-    build.executables.run([
-        "flake8", "sanic_transmute", "tests"
-    ])
 
 
 def distribute(build):
