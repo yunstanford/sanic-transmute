@@ -1,9 +1,7 @@
-import pytest
 import json
 
 
-@pytest.mark.asyncio
-async def test_route_swagger_page(app):
+def test_swagger_page(app):
     request, response = app.test_client.get(
             '/api/v1/',
         )
@@ -11,8 +9,7 @@ async def test_route_swagger_page(app):
     assert "text/html" == response.headers["Content-Type"]
 
 
-@pytest.mark.asyncio
-async def test_route_swagger_json(app):
+def test_swagger_json(app):
     request, response =  app.test_client.get('/api/v1/swagger.json')
     assert 200 == response.status
     assert "application/json" == response.headers["Content-Type"]
