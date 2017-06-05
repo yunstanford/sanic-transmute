@@ -5,7 +5,7 @@ from transmute_core import ParamExtractor, NoArgument
 from sanic.response import HTTPResponse
 
 
-DEFAULT_HTTP_CONTENT_TYPE = "application/json"
+DEFAULT_HTTP_CONTENT_TYPE = "application/octet-stream"
 
 
 def create_handler(transmute_func, context):
@@ -26,6 +26,7 @@ def create_handler(transmute_func, context):
         return HTTPResponse(
             status=response["code"],
             content_type=response["content-type"],
+            headers=response["headers"],
             body_bytes=response["body"],
         )
     handler.transmute_func = transmute_func

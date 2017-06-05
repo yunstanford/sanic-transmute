@@ -13,3 +13,4 @@ __pycache__
 .DS_Store
 access.log
 error.log
+pip-selfcheck.json
