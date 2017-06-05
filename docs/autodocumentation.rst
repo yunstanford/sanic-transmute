@@ -15,6 +15,4 @@ for all transmute routes.
 API Reference
 -------------
 
-
-.. automodule:: sanic_transmute.swagger
-    :members: add_swagger
+.. autofunction:: sanic_transmute.add_swagger
