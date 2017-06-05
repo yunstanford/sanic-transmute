@@ -11,3 +11,7 @@ sanic-transmute
 
 
 A transmute implementation for sanic.
+
+You can find out more here:
+
+http://sanic-transmute.readthedocs.io/en/latest/
