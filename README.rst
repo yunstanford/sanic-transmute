@@ -10,7 +10,8 @@ sanic-transmute
     :target: https://coveralls.io/github/yunstanford/sanic-transmute?branch=master
 
 
-A transmute implementation for sanic.
+A Sanic extension that generates APIs from python function and classes.
+
 
 You can find out more here:
 
