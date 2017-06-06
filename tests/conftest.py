@@ -23,6 +23,13 @@ def app():
     async def get_path_parameters(request, user: str) -> str:
         return user
 
+    @describe(paths="/api/v1/group/", methods="GET")
+    async def get_path_parameters_list(request, group: [str]=None) -> str:
+        if not group:
+            group = []
+        group = sorted(group)
+        return ",".join(group)
+
     @describe(paths="/api/v1/env/", methods="GET")
     async def get_parameters_optional(request, exist: bool=False) -> bool:
         return exist
@@ -71,6 +78,7 @@ def app():
     app.add_route(hello_world, "/", methods=["GET"])
     add_route(app, get_path_parameters)
     add_route(app, get_parameters_optional)
+    add_route(app, get_path_parameters_list)
     add_route(app, get_query_parameters)
     add_route(app, handle_exceptions)
     add_route(app, handle_api_exception)

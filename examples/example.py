@@ -15,7 +15,7 @@ bp = Blueprint("test_blueprints", url_prefix="/blueprint")
 
 
 @describe(paths="/api/v1/user/{user}/", methods="GET")
-async def test_transmute(request, user: str, env: str=None, group: str=None):
+async def test_transmute(request, user: str, env: str=None, group: [str]=None):
     return {
         "user": user,
         "env": env,
