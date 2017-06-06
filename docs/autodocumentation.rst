@@ -11,6 +11,11 @@ for all transmute routes.
     sanic_transmute.add_swagger(app, "/api/v1/swagger.json", "/ap1/v1")
 
 
+The swagger page looks like,
+
+.. image:: ./images/swagger_ui.png
+
+
 -------------
 API Reference
 -------------

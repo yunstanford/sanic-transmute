@@ -86,13 +86,23 @@ Let's get started.
         add_route(app, test_transmute)
         add_route(app, handle_exception)
         add_route(app, handle_api_exception)
+
         # register blueprints
         add_route(bp, get_blueprint_params)
         app.blueprint(bp)
+
         # add swagger
         add_swagger(app, "/api/v1/swagger.json", "/api/v1/")
         app.run(host="0.0.0.0", port=8000)
 
+
+-------------------
+Swagger Integration
+-------------------
+
+You can get Swagger UI for free.
+
+.. image:: ./images/swagger_ui.png
 
 
 
