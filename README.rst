@@ -38,7 +38,7 @@ Quick Start
 
 A simple example.
 
-.. code::
+.. code-block:: python
 
     from sanic import Sanic, Blueprint
     from sanic.response import json

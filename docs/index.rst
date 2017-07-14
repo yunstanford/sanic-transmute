@@ -39,7 +39,7 @@ Quick start
 
 Let's get started.
 
-.. code::
+.. code-block:: python
 
     from sanic import Sanic, Blueprint
     from sanic.response import json
