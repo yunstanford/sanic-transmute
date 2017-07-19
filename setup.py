@@ -7,14 +7,14 @@ base = os.path.dirname(os.path.abspath(__file__))
 README_PATH = os.path.join(base, "README.rst")
 
 install_requires = [
-    'transmute-core>=0.4',
+    'transmute-core>=1.4',
     'sanic',
 ]
 
 tests_require = []
 
 setup(name='sanic-transmute',
-      version='0.1.1',
+      version='0.1.2',
       description='',
       long_description=open(README_PATH).read(),
       author='Yun Xu',
