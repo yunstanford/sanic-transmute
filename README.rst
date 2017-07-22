@@ -91,3 +91,21 @@ A simple example.
         # add swagger
         add_swagger(app, "/api/v1/swagger.json", "/api/v1/")
         app.run(host="0.0.0.0", port=8000)
+
+
+-----------
+Development
+-----------
+
+Build.
+
+.. code::
+
+    ./uranium
+
+
+Run unit tests.
+
+.. code::
+
+    ./uranium test
