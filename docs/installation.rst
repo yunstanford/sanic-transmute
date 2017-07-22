@@ -6,7 +6,7 @@ Installation
 Installing it globally
 ----------------------
 
-You can install aiographite globally with any Python package manager:
+You can install sanic-transmute globally with any Python package manager:
 
 .. code::
 
