@@ -18,12 +18,15 @@ def get_swagger_spec(app):
     return getattr(app, SWAGGER_KEY)
 
 
-def add_swagger(app, json_route, html_route):
+def add_swagger(app, json_route, html_route, title="default", version="1.0", base_path=None):
     """
     a convenience method for both adding a swagger.json route,
     as well as adding a page showing the html documentation
     """
-    app.add_route(create_swagger_json_handler(app), json_route, methods=["GET"])
+    app.add_route(create_swagger_json_handler(app,
+                                              title=title, 
+                                              version=version,
+                                              base_path=base_path), json_route, methods=["GET"])
     add_swagger_api_route(app, html_route, json_route)
 
 
