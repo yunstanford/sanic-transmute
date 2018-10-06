@@ -7,7 +7,7 @@ base = os.path.dirname(os.path.abspath(__file__))
 README_PATH = os.path.join(base, "README.rst")
 
 install_requires = [
-    'transmute-core>=1.4',
+    'transmute-core>=1.9',
     'sanic',
 ]
 
@@ -19,11 +19,11 @@ setup(name='sanic-transmute',
       long_description=open(README_PATH).read(),
       author='Yun Xu',
       author_email='yunxu1992@gmail.com',
-      url='',
+      url='https://github.com/yunstanford/sanic-transmute/',
       packages=find_packages(),
       install_requires=install_requires,
       classifiers=[
-          'Development Status :: 3 - Alpha',
+          'Development Status :: 5 - Production/Stable',
           'Operating System :: MacOS',
           'Operating System :: POSIX :: Linux',
           'Topic :: System :: Software Distribution',
@@ -31,5 +31,7 @@ setup(name='sanic-transmute',
           'Programming Language :: Python',
           'Programming Language :: Python :: 3',
           'Programming Language :: Python :: 3.5',
+          'Programming Language :: Python :: 3.6',
+          'Programming Language :: Python :: 3.7',
       ]
 )

@@ -8,7 +8,6 @@ from sanic_transmute import (
 from sanic.response import HTTPResponse
 from sanic.exceptions import ServerError
 from .utils import User
-from schematics.types import ListType, StringType
 
 
 @pytest.fixture

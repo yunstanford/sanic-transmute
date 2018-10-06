@@ -1,6 +1,6 @@
-from schematics.models import Model
-from schematics.types import IntType
+import attr
 
 
-class User(Model):
-    points = IntType()
+@attr.s
+class User:
+	points = attr.ib(type=int)

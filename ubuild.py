@@ -12,12 +12,13 @@ def test(build):
     build.packages.install("pytest")
     build.packages.install("pytest-cov")
     build.packages.install("aiohttp")
-    build.packages.install("pytest-asyncio")
+    build.packages.install("pytest-sanic")
     build.packages.install("radon")
     build.executables.run([
         "pytest", "./tests",
         "--cov", "sanic_transmute",
         "--cov-report", "term-missing",
+        "--disable-pytest-warnings",
     ] + build.options.args)
 
 

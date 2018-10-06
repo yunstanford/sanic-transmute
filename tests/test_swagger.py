@@ -16,7 +16,7 @@ def test_swagger_json(app):
     text = response.text
     assert json.loads(text)["paths"]["/multiply"]["get"]["responses"] == {
         "200": {
-            "schema": {"type": "number"},
+            "schema": {"type": "integer"},
             "description": "success"
         },
         "400": {
