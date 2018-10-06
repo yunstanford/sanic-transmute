@@ -1,19 +1,19 @@
 import json
 
 
-def test_swagger_page(app):
-    request, response = app.test_client.get(
+async def test_swagger_page(test_cli):
+    response = await test_cli.get(
             '/api/v1/',
         )
     assert response.status == 200
     assert "text/html" == response.headers["Content-Type"]
 
 
-def test_swagger_json(app):
-    request, response =  app.test_client.get('/api/v1/swagger.json')
+async def test_swagger_json(test_cli):
+    response =  await test_cli.get('/api/v1/swagger.json')
     assert 200 == response.status
     assert "application/json" == response.headers["Content-Type"]
-    text = response.text
+    text = await response.text()
     assert json.loads(text)["paths"]["/multiply"]["get"]["responses"] == {
         "200": {
             "schema": {"type": "integer"},
