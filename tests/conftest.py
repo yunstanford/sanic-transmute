@@ -98,3 +98,8 @@ def app():
     add_swagger(app, "/api/v1/swagger.json", "/api/v1/")
 
     return app
+
+
+@pytest.fixture
+def test_cli(loop, app, test_client):
+    return loop.run_until_complete(test_client(app))
