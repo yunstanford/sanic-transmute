@@ -15,12 +15,17 @@ bp = Blueprint("test_blueprints", url_prefix="/blueprint")
 
 
 @describe(paths="/api/v1/user/{user}/", methods="GET")
-async def test_transmute(request, user: str, env: str=None, group: [str]=None):
+async def test_transmute_get(request, user: str, env: str=None, group: [str]=None):
     return {
         "user": user,
         "env": env,
         "group": group,
     }
+
+
+@describe(paths="/api/v1/user/", methods="POST")
+async def test_transmute_post(request, user: User) -> User:
+    return user
 
 
 @describe(paths="/killme")
@@ -40,7 +45,8 @@ async def get_blueprint_params(request, left: int, right: int) -> str:
 
 
 if __name__ == "__main__":
-    add_route(app, test_transmute)
+    add_route(app, test_transmute_get)
+    add_route(app, test_transmute_post)
     add_route(app, handle_exception)
     add_route(app, handle_api_exception)
     # register blueprints
