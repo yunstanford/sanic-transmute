@@ -71,9 +71,9 @@ Quick Start
 
 Overview:
 
-.. figure:: ./example/code-to-ui.png
+.. figure:: ./examples/code-to-ui.png
    :align: center
-   :alt: arch.png
+   :alt: code-to-ui.png
 
 
 Find Examples here:
