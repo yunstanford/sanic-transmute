@@ -14,7 +14,7 @@ install_requires = [
 tests_require = []
 
 setup(name='sanic-transmute',
-      version='0.1.2',
+      version='0.1.3',
       description='',
       long_description=open(README_PATH).read(),
       author='Yun Xu',

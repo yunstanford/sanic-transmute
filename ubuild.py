@@ -25,9 +25,13 @@ def test(build):
 def distribute(build):
     """ distribute the uranium package """
     build.packages.install("wheel")
+    build.packages.install("twine")
     build.executables.run([
         "python", "setup.py",
-        "sdist", "bdist_wheel", "--universal", "upload"
+        "sdist", "bdist_wheel", "--universal", "upload",
+    ])
+    build.executables.run([
+        "twine", "upload", "dist/*"
     ])
 
 
