@@ -1,13 +1,47 @@
 sanic-transmute
 ==================
 
-.. image:: https://travis-ci.org/yunstanford/sanic-transmute.svg?branch=master
-    :alt: build status
+.. start-badges
+
+.. list-table::
+    :stub-columns: 1
+
+    * - Build
+      - | |travis| |coverage|
+    * - Docs
+      - |docs|
+    * - Package
+      - | |version| |wheel| |supported-versions| |supported-implementations|
+
+.. |travis| image:: https://travis-ci.org/yunstanford/sanic-transmute.svg?branch=master
+    :alt: Travis-CI Build Status
     :target: https://travis-ci.org/yunstanford/sanic-transmute
 
-.. image:: https://coveralls.io/repos/github/yunstanford/sanic-transmute/badge.svg?branch=master
+.. |coverage| image:: https://coveralls.io/repos/github/yunstanford/sanic-transmute/badge.svg?branch=master
     :alt: coverage status
     :target: https://coveralls.io/github/yunstanford/sanic-transmute?branch=master
+
+.. |docs| image:: https://readthedocs.org/projects/sanic-transmute/badge/?style=flat
+    :target: https://readthedocs.org/projects/sanic-transmute
+    :alt: Documentation Status
+
+.. |version| image:: https://img.shields.io/pypi/v/sanic-transmute.svg
+    :alt: PyPI Package latest release
+    :target: https://pypi.python.org/pypi/sanic-transmute
+
+.. |wheel| image:: https://img.shields.io/pypi/wheel/sanic-transmute.svg
+    :alt: PyPI Wheel
+    :target: https://pypi.python.org/pypi/sanic-transmute
+
+.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/sanic-transmute.svg
+    :alt: Supported versions
+    :target: https://pypi.python.org/pypi/sanic-transmute
+
+.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/sanic-transmute.svg
+    :alt: Supported implementations
+    :target: https://pypi.python.org/pypi/sanic-transmute
+
+.. end-badges
 
 Easily document your Sanic API with Swagger UI, Plus param validation and model serialization.
 
