@@ -33,7 +33,7 @@ def create_handler(transmute_func, context):
             status=response["code"],
             content_type=response["content-type"],
             headers=response["headers"],
-            body_bytes=response["body"],
+            body=response["body"],
         )
     handler.transmute_func = transmute_func
     return handler

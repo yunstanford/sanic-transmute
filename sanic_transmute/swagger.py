@@ -41,7 +41,7 @@ def add_swagger_api_route(app, target_route, swagger_json_route):
     ).encode("utf-8")
 
     async def swagger_ui(request):
-        return HTTPResponse(body_bytes=swagger_body, content_type="text/html")
+        return HTTPResponse(body=swagger_body, content_type="text/html")
 
     bp = Blueprint('swagger')
     bp.static(STATIC_ROOT, static_root)
@@ -65,7 +65,7 @@ def create_swagger_json_handler(app, **kwargs):
 
     async def swagger(request):
         return HTTPResponse(
-            body_bytes=encoded_spec,
+            body=encoded_spec,
             headers={
                 "Access-Control-Allow-Origin": "*"
             },
