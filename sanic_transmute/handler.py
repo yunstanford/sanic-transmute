@@ -2,7 +2,7 @@ from functools import wraps
 from transmute_core.exceptions import APIException, NoSerializerFound
 from transmute_core.function.signature import NoDefault
 from transmute_core import ParamExtractor, NoArgument
-from sanic.response import HTTPResponse
+from sanic.response import HTTPResponse, BaseHTTPResponse
 from sanic.exceptions import SanicException
 
 
@@ -18,6 +18,8 @@ def create_handler(transmute_func, context):
             args, kwargs = await extract_params(request, context,
                                                 transmute_func)
             result = await transmute_func.raw_func(*args, **kwargs)
+            if isinstance(result, BaseHTTPResponse):
+                return result
         except SanicException as se:
             code = se.status_code or 400
             exc = APIException(message=str(se), code=code)
@@ -31,7 +33,7 @@ def create_handler(transmute_func, context):
             status=response["code"],
             content_type=response["content-type"],
             headers=response["headers"],
-            body_bytes=response["body"],
+            body=response["body"],
         )
     handler.transmute_func = transmute_func
     return handler
